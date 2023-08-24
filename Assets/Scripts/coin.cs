@@ -11,8 +11,9 @@ public class coin : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             GameManager.instance.IncrementScore(data.value);
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        
     }
 }

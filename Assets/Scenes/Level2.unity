@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 0
+  player: {fileID: 0}
   ScoreText: {fileID: 390965973}
 --- !u!1 &705507993
 GameObject:
@@ -477,18 +478,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6181445358460281049, guid: 7388fa9b6157f9c4fadb434c18863fd7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.13850208
-      objectReference: {fileID: 0}
-    - target: {fileID: 6181445358460281049, guid: 7388fa9b6157f9c4fadb434c18863fd7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7436543
-      objectReference: {fileID: 0}
-    - target: {fileID: 6181445358460281049, guid: 7388fa9b6157f9c4fadb434c18863fd7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1876864
-      objectReference: {fileID: 0}
-    - target: {fileID: 6181445358460281049, guid: 7388fa9b6157f9c4fadb434c18863fd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.011669948
       objectReference: {fileID: 0}
@@ -682,24 +671,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7388fa9b6157f9c4fadb434c18863fd7, type: 3}
---- !u!1 &1322819182 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7163458688884297195, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
-  m_PrefabInstance: {fileID: 1968150823}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1322819185
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322819182}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.48, z: 0.64}
-  m_Center: {x: 0, y: -1.19, z: 0}
 --- !u!1 &1427071599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1577,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7163458687581680922, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: fog.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163458687581680922, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: fog.excludeSkybox
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163458687581680923, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163458687581680927, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: m_RenderingPath
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163458687581680927, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7163458688884297188, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1651,25 +1642,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7163458688884297189, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
-      propertyPath: t
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7163458688884297189, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1322819182}
-    - target: {fileID: 7163458688884297189, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
-      propertyPath: jumpHeight
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7163458688884297189, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520897006}
-    - target: {fileID: 7163458688884297189, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
-      propertyPath: spawnPoint.y
-      value: 1.68
-      objectReference: {fileID: 0}
     - target: {fileID: 7163458688884297195, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
       propertyPath: m_Name
       value: FPSPlayer

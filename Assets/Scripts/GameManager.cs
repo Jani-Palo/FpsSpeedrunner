@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public int Score;
     public static GameManager instance;
+    [SerializeField] private GameObject player;
 
     public Text ScoreText;
 
     UiManager uiManager;
-
     public void IncrementScore(int score)
     {
         Score+= score;

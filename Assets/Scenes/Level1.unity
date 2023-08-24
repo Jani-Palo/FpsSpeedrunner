@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 465287666}
   m_Layer: 7
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,6 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 0
+  player: {fileID: 0}
   ScoreText: {fileID: 671040827}
 --- !u!4 &550153384 stripped
 Transform:
@@ -435,7 +436,7 @@ GameObject:
   - component: {fileID: 581557423}
   m_Layer: 7
   m_Name: Ledge (2)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -553,7 +554,7 @@ GameObject:
   - component: {fileID: 700365769}
   m_Layer: 7
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,7 +807,7 @@ GameObject:
   - component: {fileID: 886017532}
   m_Layer: 7
   m_Name: Ledge (3)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -903,7 +904,7 @@ GameObject:
   - component: {fileID: 904329736}
   m_Layer: 7
   m_Name: Ledge (4)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1005,7 +1006,7 @@ GameObject:
   - component: {fileID: 1213381794}
   m_Layer: 7
   m_Name: Ledge (1)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1104,7 +1105,7 @@ GameObject:
   - component: {fileID: 1305869177}
   m_Layer: 0
   m_Name: Environment
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1152,7 +1153,7 @@ GameObject:
   - component: {fileID: 1336835149}
   m_Layer: 7
   m_Name: Ledge (5)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1358,29 +1359,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone
       objectReference: {fileID: 0}
+    - target: {fileID: 1733588075847868143, guid: 537b165b6ae1bce4e9e942798056f2b3, type: 3}
+      propertyPath: m_TagString
+      value: Level
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 537b165b6ae1bce4e9e942798056f2b3, type: 3}
---- !u!1 &1564104240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7163458688884297195, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
-  m_PrefabInstance: {fileID: 7163458688531093612}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1564104244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564104240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc99082721da764db291f67720c4db2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 1852894484}
-  pickUpLayer:
-    serializedVersion: 2
-    m_Bits: 1719
 --- !u!4 &1661711723 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3448739184148929826, guid: da8aed24b91c32f478083d25c875d84a, type: 3}
@@ -1565,7 +1549,7 @@ GameObject:
   - component: {fileID: 1743013964}
   m_Layer: 7
   m_Name: Ledge (6)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1662,7 +1646,7 @@ GameObject:
   - component: {fileID: 1776521326}
   m_Layer: 7
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1816,7 +1800,7 @@ GameObject:
   - component: {fileID: 1796906859}
   m_Layer: 7
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1899,11 +1883,6 @@ Transform:
   m_Father: {fileID: 1305869177}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 93.746, y: 54.121002, z: -32.46399}
---- !u!4 &1852894484 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7163458687581680920, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
-  m_PrefabInstance: {fileID: 7163458688531093612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1868110650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1897,7 @@ GameObject:
   - component: {fileID: 1868110651}
   m_Layer: 7
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2272,8 +2251,69 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ledge
       objectReference: {fileID: 0}
+    - target: {fileID: 3448739184148929838, guid: da8aed24b91c32f478083d25c875d84a, type: 3}
+      propertyPath: m_TagString
+      value: Level
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8aed24b91c32f478083d25c875d84a, type: 3}
+--- !u!1001 &5490673565251187627
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5490673565259226888, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_Name
+      value: Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490673565259226892, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e1cbbbc42c7c904592956cc01118329, type: 3}
 --- !u!1001 &7163458688531093612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2328,10 +2368,6 @@ PrefabInstance:
     - target: {fileID: 7163458688884297195, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
       propertyPath: m_Name
       value: FPSPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7163458688884297195, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
@@ -2389,6 +2425,10 @@ PrefabInstance:
     - target: {fileID: 1733588075847868143, guid: 537b165b6ae1bce4e9e942798056f2b3, type: 3}
       propertyPath: m_Name
       value: Stone5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733588075847868143, guid: 537b165b6ae1bce4e9e942798056f2b3, type: 3}
+      propertyPath: m_TagString
+      value: Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 537b165b6ae1bce4e9e942798056f2b3, type: 3}
