@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UiManager : MonoBehaviour
 {
-	public Text timerText;
+	public TMP_Text timerText;
 	public static UiManager instance;
 
 	private float secondsCount;

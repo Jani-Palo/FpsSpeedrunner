@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private GameObject player;
 
-    public Text ScoreText;
+    public TMP_Text ScoreText;
 
     UiManager uiManager;
     public void IncrementScore(int score)
