@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public float speed = 10f;
   
     public TMP_Text ScoreText;
+    
     public void IncrementScore(int score)
     {
         Score+= score;
