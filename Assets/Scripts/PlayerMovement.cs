@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 5f;
 
     public GameObject spawnPoint;
+    public GameManager manager;
 
     public Camera cam;
     Vector3 velocity;
@@ -66,10 +67,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Respawn")
+        if (other.gameObject.tag == "Respawn")
         {
             this.gameObject.transform.position = spawnPoint.transform.position;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        if (other.gameObject.tag == "Portal")
+        {
+            DontDestroyOnLoad(manager);
+            GameManager.instance.loadNextLevel();
+           
         }
     }
 }

@@ -35,6 +35,6 @@ public class UiManager : MonoBehaviour
 			hourCount++;
 			minuteCount = 0;
 		}
-		DontDestroyOnLoad(gameObject);
+		//DontDestroyOnLoad(gameObject);
 	}
 }

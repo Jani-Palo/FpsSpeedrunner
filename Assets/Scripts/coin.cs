@@ -13,7 +13,5 @@ public class coin : MonoBehaviour
             GameManager.instance.IncrementScore(data.value);
             Destroy(gameObject);
         }
-
-        
     }
 }
