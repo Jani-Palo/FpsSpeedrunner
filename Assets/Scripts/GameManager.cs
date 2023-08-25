@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 public class GameManager : MonoBehaviour
 {
     public int Score;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         Score+= score;
         ScoreText.text = "Score: " + Score ;
+
     }
     private void Awake()
     {
