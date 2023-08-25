@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public float jumpHeight = 5f;
 
-    public GameObject spawnPoint;
+    public  GameObject spawnPoint;
     public GameManager manager;
 
     public Camera cam;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Respawn")
         {
-            this.gameObject.transform.position = spawnPoint.transform.position;
+            Respawn();
         }
         if (other.gameObject.tag == "Portal")
         {
@@ -77,5 +77,9 @@ public class PlayerMovement : MonoBehaviour
             GameManager.instance.loadNextLevel();
            
         }
+    }
+    public void Respawn()
+    {
+        this.gameObject.transform.position = spawnPoint.transform.position;
     }
 }
