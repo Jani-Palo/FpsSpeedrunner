@@ -456,5 +456,5 @@ MonoBehaviour:
   ScoreHolderTransform: {fileID: 1625690489}
   scoreBoardEntryObject: {fileID: 4459226501273001282, guid: e2c313a3ab96f3c4da615b3f4cef7272, type: 3}
   testEntryData:
-    name: myname
-    score: 23
+    name: chickenMan
+    score: 4234

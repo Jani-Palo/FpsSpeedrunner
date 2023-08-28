@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         Score+= score;
         ScoreText.text = "Score: " + Score ;
+        
 
     }
     private void Awake()

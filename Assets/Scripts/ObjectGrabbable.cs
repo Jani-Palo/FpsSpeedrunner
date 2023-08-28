@@ -7,17 +7,23 @@ public class ObjectGrabbable : MonoBehaviour
     bool collisionsBreakGrag;
     private Rigidbody objectRb;
     private Transform objectGrabPointTransform;
-    private void Awake() { 
+
+    private void Awake() {
         objectRb = GetComponent<Rigidbody>();  
     }
     public void Grab(Transform objectGrabPointTransform) { 
+        
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRb.useGravity = false;
+        objectRb.isKinematic = true;
+
     }
     public void Drop()
     {
         this.objectGrabPointTransform = null;
+        objectRb.isKinematic = false;
         objectRb.useGravity = true;
+
     }
     private void FixedUpdate()
     {

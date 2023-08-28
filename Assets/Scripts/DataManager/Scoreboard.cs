@@ -14,7 +14,7 @@ namespace My.Scoreboards
         [Header("Test")]
         [SerializeField] ScoreBoardEntryData testEntryData = new ScoreBoardEntryData();
 
-        private string SavePath => $"{Application.persistentDataPath}/scoreboard.json";
+        private string SavePath => $"{Application.dataPath}/scoreboard.json";
 
         private void Start()
         {

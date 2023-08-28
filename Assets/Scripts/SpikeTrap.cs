@@ -11,7 +11,7 @@ public class SpikeTrap : MonoBehaviour
         {
             transform.GetComponentInChildren<Animator>().Play("SpikeTrap");
             transform.GetComponent<Animator>().Play("SpikeCollider");
-            Player.transform.position = spawnPoint.transform.position;
+           Player.transform.position = spawnPoint.transform.position;
         }
     }
 }
