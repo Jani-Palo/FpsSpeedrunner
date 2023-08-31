@@ -5868,17 +5868,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1474204174, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1510127682}
+    - target: {fileID: 1474204175, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1510127682}
     - target: {fileID: 1474204178, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1510127682}
+    - target: {fileID: 2078694983, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2049290223}
+    - target: {fileID: 2078694984, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2049290223}
     - target: {fileID: 2078694987, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2049290223}
     - target: {fileID: 466318824957540788, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7163458687581680922, guid: 6892905fd3de48f44938777cb01635bf, type: 3}
       propertyPath: fog.enabled

@@ -6,9 +6,7 @@ public class arrow : MonoBehaviour
 {
     public float arrowLifetime = 5.0f;
     private Rigidbody rb;
-
-    public Material blueMaterial;
-    public Material redMaterial;
+    public ScaleOnHit[] objectToScale;
 
     [SerializeField] private AudioClip arrowCollisionImpact;
 
@@ -25,6 +23,13 @@ public class arrow : MonoBehaviour
         if (collision.gameObject.CompareTag("Target"))
         {
             Destroy(gameObject, 1f);
+        }
+        if (collision.gameObject.CompareTag("Arrow")) 
+        {
+            foreach (var obj in objectToScale)
+            {
+                obj.TriggerScale();
+            }
         }
         SoundEffectManager.Instance.PlaySoundFXClip(arrowCollisionImpact, transform, .7f);
     }
