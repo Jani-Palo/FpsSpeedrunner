@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class JumpPad : MonoBehaviour
 {
-    public float jumpForce = 10.0f;
+    public float jumpForce;
+    PlayerMovement playerMovement;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            CharacterController controller = other.GetComponent<CharacterController>();
-            if (controller != null)
+            playerMovement = other.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
             {
-                controller.Move(Vector3.up * jumpForce * Time.deltaTime);
+                playerMovement.ApplyJumpPadForce(jumpForce);
             }
         }
     }
 }
+
+

@@ -8,14 +8,17 @@ public class PressurePlate : MonoBehaviour
     public Collider doorCollider;
     public Vector3 openPosition;
     public Vector3 closedPosition;
+
+    public Vector3 newPos;
     public float moveSpeed = 2.0f;
     public float requiredWeight;
     private bool isActivated = false;
+    [SerializeField] private AudioClip moveDoor;
 
     private void Start()
     {
         closedPosition = door.transform.position;
-        openPosition = closedPosition + new Vector3(0, 5f, 0);
+        openPosition = closedPosition + newPos;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,6 +44,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OpenDoor()
     {
+       // SoundEffectManager.Instance.PlaySoundFXClip(moveDoor, transform, 1f);
         doorCollider.isTrigger = false;
         StopAllCoroutines();
         StartCoroutine(MoveDoor(openPosition));

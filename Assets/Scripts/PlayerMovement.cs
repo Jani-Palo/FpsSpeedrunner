@@ -5,15 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Sliding")]
-    public bool isSliding = false;
-    public float slideSpeed = 10f;
-    public float slideDuration = 1f;
-    private float slideTimer = 0f;
-    private Vector3 slideDirection;
-    private Vector3 originalScale;
-
-
     CharacterController cc;
     float speed;
     public float runSpeed;
@@ -30,36 +21,53 @@ public class PlayerMovement : MonoBehaviour
 
     public  GameObject spawnPoint;
     public GameManager manager;
+    public GameObject pickedUpBow;
 
+    [SerializeField] private AudioClip pickUpBow;
+
+    public AudioSource audioSource;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] walkSounds;
+    [SerializeField] private AudioClip[] runSounds;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
+
+    private bool isRunning = false;
+    private bool wasGrounded = true;
+
+    public float jumpForce;
 
     public Camera cam;
     Vector3 velocity;
     bool isGrounded;
     Vector3 move;
-    // Start is called before the first frame update
+    bool isOnJumpPad;
+
     void Start()
     {
-        originalScale = transform.localScale;
+        audioSource = GetComponent<AudioSource>();
         cc = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position,groundDist,groundLayer);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundLayer);
 
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        move = (isSliding ? slideDirection : (transform.right * x + transform.forward * z));
+        move = transform.right * x + transform.forward * z;
+        
 
         cc.Move(move * speed * Time.deltaTime);
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            PlaySound(jumpSound);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         velocity.y += gravity * Time.deltaTime;
@@ -69,68 +77,77 @@ public class PlayerMovement : MonoBehaviour
         {
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 90, t);
             speed = runSpeed;
+            isRunning = true;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 60, t);
             speed = walkSpeed;
+            isRunning = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded)
-        {
-            StartSliding();
-        }
-        if (isSliding)
-        {
-            UpdateSlide();
-            float scaleFactor = Mathf.Lerp(transform.localScale.x, originalScale.x * 0.8f, slideTimer / slideDuration);
-            transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
-        }
+        HandleMovementSound();
+        HandleJumpPad();
     }
-    private void StartSliding()
+    private void LateUpdate()
     {
-        isSliding = true;
-        slideTimer = 0f;
-        slideDirection = move.normalized;
-        Vector3 newScale = originalScale * .6f; 
-        transform.localScale = newScale;
-        speed = slideSpeed;
-    }
-
-    private void UpdateSlide()
-    {
-        slideTimer += Time.deltaTime;
-        if (slideTimer >= slideDuration)
+        if (isGrounded && !wasGrounded)
         {
-            EndSliding();
+            PlaySound(landSound);
+        }
+        wasGrounded = isGrounded;
+    }
+    private void HandleMovementSound()
+    {
+        if (isGrounded && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+        {
+            AudioClip[] soundsToPlay = isRunning ? runSounds : walkSounds;
+            PlayRandomSound(soundsToPlay);
         }
     }
-
-    private void EndSliding()
+    private void HandleJumpPad()
     {
-        isSliding = false;
-        speed = walkSpeed;
-        // Restore the player's original scale
-        transform.localScale = originalScale;
+        if (isOnJumpPad) 
+        {
+            ApplyJumpPadForce(jumpForce);
+        }
     }
-
+    public void ApplyJumpPadForce(float force)
+    {
+        velocity.y = Mathf.Sqrt(force * -2f * gravity);
+    }
+    private void PlayRandomSound(AudioClip[] clips)
+    {
+        if (clips.Length > 0 && !audioSource.isPlaying)
+        {
+            int randomIndex = Random.Range(0, clips.Length);
+            audioSource.clip = clips[randomIndex];
+            audioSource.Play();
+        }
+    }
+    private void PlaySound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
     private void OnTriggerEnter(Collider other)
     {
+        if(other.CompareTag("BowPickup"))
+        {
+            SoundEffectManager.Instance.PlaySoundFXClip(pickUpBow, transform, 1f);
+            pickedUpBow.SetActive(true);
+            Destroy(other.gameObject);
+        }
         if (other.gameObject.tag == "Respawn")
         {
             Respawn();
         }
-        if (other.gameObject.tag == "Portal")
-        {
-            DontDestroyOnLoad(manager);
-            GameManager.instance.loadNextLevel();
-           
-        }
+        
     }
     public void Respawn()
     {
-        this.gameObject.transform.position = spawnPoint.transform.position;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-   
+
+    
 }
 

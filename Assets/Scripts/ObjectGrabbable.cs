@@ -7,7 +7,11 @@ public class ObjectGrabbable : MonoBehaviour
     bool collisionsBreakGrag;
     private Rigidbody objectRb;
     private Transform objectGrabPointTransform;
+    public GameObject myBow;
 
+    [SerializeField] private AudioClip boxImpact;
+
+    PlayerMovement player;
     private void Awake() {
         objectRb = GetComponent<Rigidbody>();  
     }
@@ -16,14 +20,13 @@ public class ObjectGrabbable : MonoBehaviour
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRb.useGravity = false;
         objectRb.isKinematic = true;
-
+        myBow.SetActive(false);
     }
     public void Drop()
     {
         this.objectGrabPointTransform = null;
         objectRb.isKinematic = false;
         objectRb.useGravity = true;
-
     }
     private void FixedUpdate()
     {
@@ -34,8 +37,9 @@ public class ObjectGrabbable : MonoBehaviour
             objectRb.MovePosition(newPos);
         }
     }
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(UnityEngine.Collision collision)
     {
+        SoundEffectManager.Instance.PlaySoundFXClip(boxImpact, transform, .6f);
         if (collisionsBreakGrag)
         {
             if (objectRb != null)

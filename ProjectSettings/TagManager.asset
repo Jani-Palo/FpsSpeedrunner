@@ -10,6 +10,7 @@ TagManager:
   - Portal
   - Arrow
   - Target
+  - BowPickup
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - PP
   - PickUp
   - Ignore
-  - 
+  - Bow
   - 
   - 
   - 

@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private GameObject player;
 
-    public TMP_Text timerText;
 
     private float secondsCount;
     private int minuteCount;
@@ -24,9 +23,11 @@ public class GameManager : MonoBehaviour
     public void IncrementScore(int score)
     {
         Score+= score;
-        ScoreText.text = "Score: " + Score ;
-        
-
+        ScoreText.text = "Gems Collected: " + Score + "/7";
+        if (Score >= 7)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
     private void Awake()
     {
@@ -34,35 +35,15 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        UpdateTimerUI();
+        
         RestartRun();
     }
-    public void loadNextLevel()
-    {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
-    }
-    public void UpdateTimerUI()
-    {
-        //set timer UI
-        secondsCount += Time.deltaTime;
-        timerText.text = minuteCount + "m" + (int)secondsCount + "s";
-        if (secondsCount >= 60)
-        {
-            minuteCount++;
-            secondsCount = 0;
-        }
-        else if (minuteCount >= 60)
-        {
-            hourCount++;
-            minuteCount = 0;
-        }
-    }
+   
     public void RestartRun()
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             Destroy(gameObject);
         }
     }
