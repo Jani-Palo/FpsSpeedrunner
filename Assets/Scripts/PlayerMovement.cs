@@ -44,14 +44,19 @@ public class PlayerMovement : MonoBehaviour
     Vector3 move;
     bool isOnJumpPad;
 
+    [SerializeField] private AudioClip respawnSound;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         cc = GetComponent<CharacterController>();
+
+        isRunning = false;
+
+        speed = walkSpeed;
     }
 
-    void Update()
-    {
+   private void Update()
+        {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundLayer);
 
         if (isGrounded && velocity.y < 0)
@@ -87,6 +92,15 @@ public class PlayerMovement : MonoBehaviour
         }
         HandleMovementSound();
         HandleJumpPad();
+
+        if(PauseMenu.gameIsPaused)
+        {
+            audioSource.volume = 0;
+        }
+        if (PauseMenu.gameIsPaused == false)
+        {
+            audioSource.volume = 1;
+        }
     }
     private void LateUpdate()
     {
@@ -140,14 +154,15 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Respawn")
         {
             Respawn();
+
         }
-        
+
     }
     public void Respawn()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    
+
 }
 

@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 28c4d4343a504460fb156afb9b858311, type: 2}
+  - {fileID: 2100000, guid: 981a6c651e539497da0058d713deecde, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   newPos: {x: 20, y: 0, z: 0}
   moveSpeed: 3
   requiredWeight: 10
-  moveDoor: {fileID: 0}
+  PressureImpact: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
 --- !u!65 &4908906047492832443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116,5 +116,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 1, y: 0.22413072, z: 1}
+  m_Center: {x: 0, y: 0.612065, z: 0}

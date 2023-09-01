@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class TargetPlatformStick : MonoBehaviour
 {
-    public Transform player, box;   
+    public Transform player;
+    private Transform playerOriginalParent;
+
+    private void Start()
+    {
+        playerOriginalParent = player.parent; 
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             player.parent = transform;
-            //box.parent = transform;
         }
     }
 
@@ -18,8 +24,7 @@ public class TargetPlatformStick : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player.parent = null;
-            //box.parent = null;
+            player.parent = playerOriginalParent; 
         }
     }
 }

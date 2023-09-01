@@ -12,9 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
 
 
-    private float secondsCount;
-    private int minuteCount;
-    private int hourCount;
 
     public float speed = 10f;
   
@@ -35,8 +32,10 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        
-        RestartRun();
+        if(PauseMenu.gameIsPaused == false)
+        {
+            RestartRun();
+        }
     }
    
     public void RestartRun()

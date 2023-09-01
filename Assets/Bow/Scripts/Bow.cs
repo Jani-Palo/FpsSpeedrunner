@@ -28,6 +28,15 @@ public class Bow : MonoBehaviour
 
     private void Update()
     {
+        if(PauseMenu.gameIsPaused)
+        {
+            isCharging = false;
+           
+        }
+        if(PauseMenu.gameIsPaused == false)
+        {
+            isCharging=true;
+        }
         if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire)
         {
             SoundEffectManager.Instance.PlaySoundFXClip(pullStringBack, transform, 1f);
@@ -71,5 +80,7 @@ public class Bow : MonoBehaviour
         arrowRb.velocity = arrowSpawnPoint.forward * shootForce;
 
         currentChargeTime = 0.0f;
+
+       
     }
 }

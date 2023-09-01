@@ -16,7 +16,6 @@ public class arrow : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Destroy(gameObject, arrowLifetime);
     }
-
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
         rb.isKinematic = true;

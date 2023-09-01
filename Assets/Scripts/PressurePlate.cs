@@ -13,7 +13,8 @@ public class PressurePlate : MonoBehaviour
     public float moveSpeed = 2.0f;
     public float requiredWeight;
     private bool isActivated = false;
-    [SerializeField] private AudioClip moveDoor;
+    [SerializeField] private AudioClip PressureImpact;
+
 
     private void Start()
     {
@@ -44,7 +45,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OpenDoor()
     {
-       // SoundEffectManager.Instance.PlaySoundFXClip(moveDoor, transform, 1f);
+        SoundEffectManager.Instance.PlaySoundFXClip(PressureImpact, transform, 1f);
         doorCollider.isTrigger = false;
         StopAllCoroutines();
         StartCoroutine(MoveDoor(openPosition));
@@ -71,4 +72,5 @@ public class PressurePlate : MonoBehaviour
 
         door.transform.position = targetPosition;
     }
+    
 }

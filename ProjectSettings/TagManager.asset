@@ -12,6 +12,7 @@ TagManager:
   - Target
   - BowPickup
   - TargetObject
+  - Grabbable
   layers:
   - Default
   - TransparentFX

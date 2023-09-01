@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSens = 100f;
     public Transform playerBody;
+    private float initialMouseSens = 200f; // Default mouse sensitivity.
+
+    [HideInInspector] public float mouseSens; // Sensitivity adjusted from the MainMenu.
 
     float xRot = 0;
-    // Start is called before the first frame update
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+       
     }
 
-    // Update is called once per frame
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;

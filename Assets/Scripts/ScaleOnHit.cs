@@ -8,10 +8,13 @@ public class ScaleOnHit : MonoBehaviour
     public float scaleDuration = 1.0f;
     public bool scaleNegativeX = true;
 
+    public Vector3 customScaleChange = Vector3.one;
+    public float customScaleDuration = 1.0f;
+
     private bool isScaling = false;
     private Vector3 initialScale;
     private Vector3 targetScale;
-    private Vector3 originalScale; // Store the original scale before any scaling
+    private Vector3 originalScale;
     private float startTime;
 
     private void Start()
@@ -49,18 +52,12 @@ public class ScaleOnHit : MonoBehaviour
     {
         if (isScaling)
         {
-            targetScale = originalScale; // Scale back to the original size
+            targetScale = originalScale;
         }
         else
         {
-            if (scaleNegativeX)
-            {
-                targetScale = new Vector3(initialScale.x - targetScaleAmount, initialScale.y, initialScale.z);
-            }
-            else
-            {
-                targetScale = new Vector3(initialScale.x + targetScaleAmount, initialScale.y, initialScale.z);
-            }
+            targetScale = initialScale + customScaleChange;
+            scaleDuration = customScaleDuration;
         }
 
         isScaling = true;

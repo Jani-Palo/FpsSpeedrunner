@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowLifetime: 5
-  blueMaterial: {fileID: 2100000, guid: 39be9416f34ad044fb21225724e504cc, type: 2}
-  redMaterial: {fileID: 2100000, guid: e3884bd18a85b1a4caba857f580becdc, type: 2}
+  objectToScale: []
   arrowCollisionImpact: {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
 --- !u!54 &4180632374465690109
 Rigidbody:
